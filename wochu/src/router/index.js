@@ -6,6 +6,9 @@ import relative from './relative';
 import mine from "./mine";
 import group from "./groupBuying";
 import shopping from "./shopping"
+import type from "./type"
+import fullGoods from "./fullGoods"
+import address from "./address"
 Vue.use(VueRouter)
 
 
@@ -16,6 +19,9 @@ export default new VueRouter({
         relative,
         mine,
         shopping,
-        group
+        group£¬
+        type,
+        fullGoods,
+        address
     ]
 })
