@@ -1,10 +1,10 @@
-import Vue from "vue";
+import Vue from "vue"
 import VueRouter from "vue-router"
 import home from "./home"
 import fresh from "./fresh"
-import relative from './relative';
-import mine from "./mine";
-import group from "./groupBuying";
+import relative from './relative'
+import mine from "./mine"
+import group from "./groupBuying"
 import shopping from "./shopping"
 import type from "./type"
 import fullGoods from "./fullGoods"
@@ -19,7 +19,7 @@ export default new VueRouter({
         relative,
         mine,
         shopping,
-        group£¬
+        group,
         type,
         fullGoods,
         address

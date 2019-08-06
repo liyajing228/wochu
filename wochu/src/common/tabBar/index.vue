@@ -1,37 +1,79 @@
 <template>
-    <div class="tabBar" >
-          <router-link v-for="(item,index) in list" :key="index" :to="item.path" tag="div" >
-            <img :src="active==index?'item.imgUrl1':'item.imgUrl2'" alt="" @click="handleChange(index)">
-            <p>{{item.p}}</p>
-        </router-link>
-    </div>
+<div class="weui-tabbar">
+ 
+        <a href="javascript:;" class="weui-tabbar__item " v-for="(i,index) in tabs" :key="index" :class="{active:index == thatnum}" @click="addClassName(index)">
+          <router-link :to="i.url">
+            <img v-if="thatnum!=index"  :src="i.img" >
+            <img v-if="thatnum==index"  :src="i.active" >
+            <p class="weui-tabbar__label">{{i.text}}</p>
+          </router-link>
+        </a>
+ 
+      </div>
 </template>
-
 <script>
+
+import axios from "axios";
 export default {
-    name:"TabBar",
-    data(){
-        return{
-            active:0,
-            list:[{p:"首页",imgUrl1:"http://wmall.wochu.cn/h5/img/vueCommon/index_n.png",imgUrl2:"http://wmall.wochu.cn/h5/img/vueCommon/index_r.png",path:""},
-            {p:"分类",imgUrl1:"http://wmall.wochu.cn/h5/img/vueCommon/shopping_n.png",imgUrl2:"http://wmall.wochu.cn/h5/img/vueCommon/shopping_r.png",path:""},
-            {p:"购物车",imgUrl1:"http://wmall.wochu.cn/h5/img/vueCommon/cart_n.png",imgUrl2:"http://wmall.wochu.cn/h5/img/vueCommon/cart_r.png",path:""},
-            {p:"我的",imgUrl1:"http://wmall.wochu.cn/h5/img/vueCommon/my_n.png",imgUrl2:"http://wmall.wochu.cn/h5/img/vueCommon/my_r.png",path:""},]
-        }
+  name: "index",
+  props:['tabName'],
+  data() {
+    return {
+      thatnum: 0,
+      tabs:[
+        {text:"首页",url:'/home',img:"./img/20.png",active:"./img/21.png"},
+        {text:"分类",url:'/type',img:"./img/23.png",active:"./img/22.png"},
+        {text:"购物车",url:'/shopping',img:"./img/25.png",active:"./img/17.png"},
+        {text:"我的",url:'/mine',img:"./img/24.png",active:"./img/26.png"}
+      ],
+    };
+  },
+  mounted(){
+    this.thatnum=this.tabName
+  },
+  methods: {
+    addClassName: function(index) {
+      this.thatnum = index;
     },
-    methods:{
-        handleChange(index){
-            this.active=index;
-            console.log(index);
+  }
+};
+</script>
+<style>
+   * {
+            margin: 0;
+            padding: 0
         }
-    }
+    
+.weui-tabbar {
+    width:7.5rem;
+        height:1rem;
+        border-top:.02rem solid #ccc;
+        position:fixed;
+        bottom:0;
+        left:0;
+       padding-top:.1rem;
+        background:#fff;
 
 }
-</script>
+.weui-tabbar__item{
+        width:24%;
+        height:.88rem;
+        float:left;
+        text-align:center;
+      
+        text-decoration: none;
+}
+img{
+      width:.58rem;
+        height:.58rem;
 
-<style>
-    /* .tabBar{display: flex;z-index: 2;width:7rem;height: 1rem;background: red;} */
-        .tabBar{display: flex;font-size: .3rem;justify-content: space-around;position: fixed;bottom: 0; z-index: 2;background: red;width: 7.5rem;height: 1.2rem}
-    .tabBar>div>img{height: .58rem;width:.58rem;margin-top: .1rem }
-
+}
+a{
+   text-decoration:none;
+  color:#999999;
+        font-size:.24rem;
+}
+.active{
+  color:#5d8640;
+}
 </style>
