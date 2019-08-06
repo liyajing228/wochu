@@ -1,0 +1,22 @@
+export default {
+    path:"/relative",
+    component:()=>import("views/relative"),
+    name:"relative",
+     children:[
+        {
+            path:"argument",
+            component:()=>import("views/relative/argument"),
+            name:"argument",
+        },
+        {
+            path:"info",
+            component:()=>import("views/relative/info"),
+            name:"info",
+        },
+        {
+            path:"us",
+            component:()=>import("views/relative/us"),
+            name:"us",
+        }
+    ]
+ }
