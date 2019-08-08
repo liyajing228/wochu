@@ -10,16 +10,8 @@ module.exports = {
                 target:"http://api9.wochu.cn",
                 changeOrigin:true
             },
-<<<<<<< HEAD
-            // "/client":{
-            //     target:"http://wmall.wochu.cn",
-            //     changeOrigin:true
-            // }
-                    }
-                
-=======
         }
->>>>>>> 59a339978e0b2135cd8c00564e90a9570a9d2578
+                
     },
     
     

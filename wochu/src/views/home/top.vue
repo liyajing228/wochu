@@ -5,14 +5,14 @@
             <p>请填写地址</p>
             <span><img id="tri" src="http://wmall.wochu.cn/h5/home/vueimg/icon.png"></span>
         </div>
-        <img src="http://wmall.wochu.cn/h5/home/vueimg/search.png">
+        <img src="http://wmall.wochu.cn/h5/home/vueimg/search.png"/>
     </div>
 
 </template>
 
 <script>
 export default {
-
+   
 }
 </script>
 

@@ -4,9 +4,9 @@
         <ul>
             <li class="list-li-content" v-for="(item,index) in val3.shelveList" :key="index">
                 <a href="">
-                    <div>
+                    <v-touch tag="div" @tap="back">
                         <img :src="item.icon" alt="">
-                    </div>
+                    </v-touch>
                     <div class="text-content">
                         <p>{{item.goodsName}}</p>
                         <p><span>￥{{item.marketPrice}}</span></p>
@@ -25,7 +25,12 @@ export default {
 
         }
     },
-     props:["val3"]
+     props:["val3"],
+     methods:{
+         back(){
+             this.$router.push("/type");
+         }
+     }
     
 }
 </script>
@@ -39,8 +44,8 @@ export default {
     
     .list-li-content img{width: 3.36rem;height: 3.36rem;}
     .text-content{height: 2.24rem;text-align: center;}
-    .list-li-content a{display:block;background-color: #fff;width: 3.36rem;height: 6.08rem;}
-    .text-content p{width: 3.29rem;height: 0.94rem;font-size: .3rem;line-height: 0.94rem;}
-    .text-content p:nth-of-type(2){height: 0.42rem;line-height: 0.42rem;color: #c5331e;font-size: .3rem;margin-bottom: 0.2rem;}
-    .text-content .add-cart{width: 2.2rem;height: 0.8rem;background-color: #ffe313;border-radius: 0.4rem;margin:0 auto;}
+    .list-li-content a{display:block;background-color: #fff;width: 3.36rem;}
+    .text-content p{width: 3.29rem;font-size: .3rem;white-space: nowrap;overflow: hidden;}
+    .text-content p:nth-of-type(2){color: #c5331e;font-size: .3rem;margin-bottom: 0.2rem;}
+    .text-content .add-cart{width: 2.2rem;height: 0.8rem;background-color: #ffe313;border-radius: 0.4rem;margin:0 auto;line-height: 0.8rem;}
 </style>

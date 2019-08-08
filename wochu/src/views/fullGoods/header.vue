@@ -1,9 +1,9 @@
 <template>
   <div class="head">
     <div class="com">
-      <img src="http://wmall.wochu.cn/h5/activityTemplate/img/ac-back.png" alt />
-     <img src="http://wmall.wochu.cn/h5/activityTemplate/img/ac-cart.png" alt="">
-    <img src="http://wmall.wochu.cn/h5/activityTemplate/img/ac-share.png" alt="">
+      <router-link tag="img" to="/type" src="http://wmall.wochu.cn/h5/activityTemplate/img/ac-back.png" />
+     <img src="http://wmall.wochu.cn/h5/activityTemplate/img/ac-cart.png"/>
+     <router-link tag="img" to="/shopping" src="http://wmall.wochu.cn/h5/activityTemplate/img/ac-share.png" />
    
     </div>
   </div>

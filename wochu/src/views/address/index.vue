@@ -5,7 +5,7 @@
         </router-view>
         <div class="address-top" >
         <div>
-            <v-touch @tap="backType">
+            <v-touch @tap="backHome">
                 <img src="./img/left.png" alt="">
             </v-touch>
         </div>
@@ -35,12 +35,12 @@
 <script>
 
 export default {
-    name:"adress",
+    name:"address",
     methods:{
         handleAdd(){
             this.$router.push("/addressAdd")
         },
-        backType(){
+        backHome(){
             this.$router.push("/home")
         }
     }
