@@ -38,7 +38,7 @@ export default {
   }
 };
 </script>
-<style>
+<style scoped>
    * {
             margin: 0;
             padding: 0
@@ -56,16 +56,19 @@ export default {
 
 }
 .weui-tabbar__item{
-        width:24%;
+        width:25%;
         height:.88rem;
         float:left;
         text-align:center;
-      
+
         text-decoration: none;
+      
 }
 img{
+  display:block;
       width:.58rem;
         height:.58rem;
+    margin:0 auto;
 
 }
 a{

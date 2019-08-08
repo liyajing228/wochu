@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="shopping-data">
            <div class="data-none">
        <div class="data-none-img">
            <img src="http://wmall.wochu.cn/h5/mall/css/images/ic_no_goods.png">
@@ -11,7 +11,7 @@
             <h2>可以看看哪些想买的</h2>
         </div>
         <router-link to="/home" class="data-none-btn">随便逛逛</router-link>
-    </div> 
+        </div> 
     
         <div class="recommend-list">
         <div class="recommend-list-zip">
@@ -62,31 +62,32 @@ export default {
 
 }
 </script>
-<style scope>
+<style scoped>
 *{
     margin:0;
     padding:0;
 }
-body{
+.shopping-data{
     background:#F4F4F4;
 
 }
 .data-none{
     width:100%;
     height:1.837333rem;
-    margin-top:2.666667rem;
+    padding-top:2.666667rem;
     text-align:center;
     margin-bottom:1rem;
+
    
 }
 .data-none-img{
     width:100%;
-    
-   text-align:center;
 }
 .data-none-img>img{
     width:2.44rem;
     height:0.74rem;
+    display:block;
+    margin:0 auto;
 }
 .data-none-text{
     width:100%;
@@ -117,15 +118,16 @@ body{
     text-align:center;
     font-size:0.32rem;
     color:#F47D30;
-    border:0.02rem solid #F47D30;
     text-decoration:none;
-    margin:0.2rem 2.552rem 1.5rem;
+    padding:0.3rem;
+    margin-left:2.7rem;
+
 }
 
 .recommend-list{
-    width:6.94rem;
+    width:100%;
    background:#f4f4f4;
-    padding:0.5rem 0.28rem 1.5rem;
+    padding:1.9rem 0.28rem 1.5rem;
     margin-bottom:8.5rem;
     margin-top:1.5rem;
 }
@@ -206,12 +208,11 @@ body{
     color:#8DC16B;
     text-decoration: none;
     display:block;
-    cursor: pointer;
     width:0.5rem;
     height:0.5rem;
-    text-align:center;
     line-height:0.5rem;
     border-radius:50%;
+ 
     float:right;
     margin-top:-0.3rem;
     margin-right:0.5rem;
@@ -224,7 +225,7 @@ body{
     color:#999999;
     text-align:center;
     margin-left:2.6rem;
-    margin-bottom:1.5rem;
+    padding-bottom:1.8rem;
    
 }
 </style>

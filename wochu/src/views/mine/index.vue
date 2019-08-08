@@ -1,5 +1,6 @@
 <template>
     <div class="mine">
+           <router-view></router-view>
             <div class="banner">
         <div class="nav">
             <img src="../../../public/img/0.png" class="ban">
@@ -9,7 +10,7 @@
             </div>
             <div class="nav-foot">
                 <div class="nav-foo">
-                   <a class="foot1" href="../recharge" >
+                   <a class="foot1" @click="handleTo()" >
                         <span>0</span> 
                         <p>账户余额</p>  
                     </a> 
@@ -61,7 +62,7 @@
             <img src="../../../public/img/19.gif">
         </div>
     </div>
-      <router-view></router-view>
+   
     </div>
       
 </template>
@@ -98,7 +99,7 @@ import m from "../../../public/img/18.png"
                   ],
                   list2:[
                        {src:j,word:"我的团购",href:"/groupBuying"},
-                        {src:k,word:"意见反馈",href:"/groupBuying"},
+                        {src:k,word:"意见反馈",href:"/feedback"},
                         {src:l,word:"设置中心",href:"/groupBuying"},
                         {src:m,word:"客服电话",href:"/groupBuying"}
                   ]
@@ -107,17 +108,22 @@ import m from "../../../public/img/18.png"
             },
               created(){
        document.title = this.$route.meta.title
+        },
+        methods:{
+            handleTo(){
+                this.$router.push("/recharge")
+            }
         }
  
 
 }
 </script>
-<style scope>
+<style scoped>
  * {
             margin: 0;
             padding: 0
         }
-  
+
     .banner>.nav{
             height:5.72rem;
           background:#E7E7E7;
@@ -240,9 +246,9 @@ import m from "../../../public/img/18.png"
       }
        .lis{
             width:7.5rem;
-            height:.98rem;
-           margin:.2rem 0 0;
-           padding:.4rem 0;
+            height:1.58rem;
+           margin:.3rem 0 0;
+          
         border-bottom:.24rem solid #f4f4f4;
         background:#ffffff;
         }
@@ -250,6 +256,7 @@ import m from "../../../public/img/18.png"
         width:19.6%;
        height:1.06rem;
        float:left;
+       line-height:0.86rem;
        text-align:center;
        list-style:none;
        font-size:.24rem;
@@ -259,6 +266,7 @@ import m from "../../../public/img/18.png"
         width:25%;
         height:1.08rem;
         float:left;
+        line-height:0.78rem;
         list-style:none;
           font-size:.24rem;
        color:#999999;
@@ -272,11 +280,13 @@ import m from "../../../public/img/18.png"
         width:.56rem;
         height:.56rem;
         margin-bottom:.1rem;
+        display:block;
+        margin:0 auto;
     }
     .lis1{
         background:#fff;
         width:7.5rem;
-        height:1.08rem;
+        height:1.58rem;
         padding:.3rem 0;
         border-bottom: .02rem solid #f4f4f4;
     }
@@ -286,15 +296,15 @@ import m from "../../../public/img/18.png"
     }
    .center{
        width:7.5rem;
-       height:1.5rem;
+       height:2.2rem;
      background-color:#f4f4f4;
-       vertical-align: middle;
-        text-align: center;
-        display: table-cell;
+     margin-bottom:1.0rem;
+    
    }
    .center>img{
        width:6.88rem;
        height:1.5rem;
-       margin-bottom:1.2rem;
+       display:block;
+       margin:0 auto;
    }
 </style>

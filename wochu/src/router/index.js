@@ -9,11 +9,17 @@ import shopping from "./shopping"
 import type from "./type"
 import fullGoods from "./fullGoods"
 import address from "./address"
+import recharge from "./recharge"
+import feedback from "./feedback"
 Vue.use(VueRouter)
 
 
 export default new VueRouter({
     routes:[
+        {
+            path:"/",
+        redirect:"/home"
+        },
         home,
         fresh,
         relative,
@@ -22,6 +28,8 @@ export default new VueRouter({
         group,
         type,
         fullGoods,
-        address
+        address,
+        recharge,
+        feedback
     ]
 })

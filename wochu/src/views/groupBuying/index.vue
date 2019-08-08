@@ -5,7 +5,7 @@
       <div class="group-top">
         <router-link class="group-jian" 
         to="/mine"
-        teg="a">
+        >
           
           <img src="../../assets/goback.png" />
         </router-link>
@@ -92,6 +92,7 @@ export default {
 Http("get","http://tg.wochu.cn/client/v1/groupBuy/HotSaleList?parameters=%7B%22pageSize%22%3A5%2C%22pageIndex%22%3A1%7D").then((data)=>{
        // console.log(data.data)
         this.list=data.data.items;
+        console.log(this.list)
         // console.log(data.data.items[0].market_price)
     })
 
@@ -99,7 +100,7 @@ Http("get","http://tg.wochu.cn/client/v1/groupBuy/HotSaleList?parameters=%7B%22p
   },
 };
 </script>
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
@@ -151,7 +152,9 @@ Http("get","http://tg.wochu.cn/client/v1/groupBuy/HotSaleList?parameters=%7B%22p
   background: #fff;
   padding-top: 1rem;
 }
-
+.group-center{
+  margin-top:1rem;
+}
 
 .group-center-top {
   width: 7.5rem;
@@ -170,6 +173,7 @@ Http("get","http://tg.wochu.cn/client/v1/groupBuy/HotSaleList?parameters=%7B%22p
 .group-center-img{
     width:100%;
     height:2.97rem;
+   
       position: relative;
       vertical-align: middle;
       

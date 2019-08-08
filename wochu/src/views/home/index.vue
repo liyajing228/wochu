@@ -35,6 +35,6 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .B_con{height: 12.34rem;overflow: auto;margin-bottom: 1rem}
 </style>

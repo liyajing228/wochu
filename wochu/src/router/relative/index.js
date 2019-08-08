@@ -2,21 +2,41 @@ export default {
     path:"/relative",
     component:()=>import("views/relative"),
     name:"relative",
+    meta:{
+        title:"详情页",
+        tabBar:false,
+        auth:true
+    },
      children:[
         {
             path:"argument",
             component:()=>import("views/relative/argument"),
             name:"argument",
+            meta:{
+                title:"详情页",
+                tabBar:false,
+                auth:true
+            },
         },
         {
             path:"info",
             component:()=>import("views/relative/info"),
             name:"info",
+            meta:{
+                title:"详情页",
+                tabBar:false,
+                auth:true
+            },
         },
         {
             path:"us",
             component:()=>import("views/relative/us"),
             name:"us",
+            meta:{
+                title:"详情页",
+                tabBar:false,
+                auth:true
+            },
         }
     ]
  }

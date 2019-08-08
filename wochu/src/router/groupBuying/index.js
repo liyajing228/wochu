@@ -1,6 +1,5 @@
 export default{
     path:"/groupBuying",
-    redirect:"",
     component:()=>import("views/groupBuying"),
     name:"groupBuying",
     meta:{

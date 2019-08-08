@@ -75,7 +75,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 p{margin: 0;padding: 0}
 img{width:7.5rem;}
 .count_moban>div{width: 1.9rem;height:3.52rem; position: relative;background: white ;width: 2.2rem;margin-right: .2rem;margin-bottom: .2rem}

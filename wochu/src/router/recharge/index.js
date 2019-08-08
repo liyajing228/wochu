@@ -1,6 +1,5 @@
 export default{
     path:"/recharge",
-    redirect:"",
     component:()=>import("views/recharge"),
     name:"recharge",
     meta:{
