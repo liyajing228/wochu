@@ -74,12 +74,11 @@ export default {
       if(data.index==0){
         this.$router.push("/fullGoods")
       }
-      console.log(data.aTId);
+      
     },
     getRightData() {
       axios.get("http://api9.wochu.cn/client/v1/goods/GetCategoryRecommendList").then(data => {
         this.list = data.data.data;
-       
       });
     },
     getDetialData(){

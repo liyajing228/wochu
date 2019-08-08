@@ -1,6 +1,15 @@
 <template>
         <div class="total">
-        <div><img src="https://img.wochu.cn/upload/a8105004-637f-4905-b56b-324d4f592249.jpg"></div>
+        <div>
+<!--          <router-link
+      src="https://img.wochu.cn/upload/a8105004-637f-4905-b56b-324d4f592249.jpg"
+      tag="img"
+      to="/shopping"
+    ></router-link>
+ -->       <v-touch
+    tag="img"
+  src="https://img.wochu.cn/upload/a8105004-637f-4905-b56b-324d4f592249.jpg" @tap="handleTo"></v-touch>
+        </div>
         <div><img src="https://img.wochu.cn/upload/9a8a2eb7-3491-4f38-a252-618cd3d38d44.jpg"></div>
         <div><img src="https://img.wochu.cn/upload/984f8c49-5af3-4cce-9cb8-19eba0855cb2.jpg"></div>
         <div><img src="https://img.wochu.cn/upload/ce463dff-8675-4e0c-818c-0dcb5b214fe3.jpg"></div>
@@ -14,6 +23,12 @@
 <script>
 export default {
     name:"Title",
+    methods:{
+        handleTo(){
+            console.log(11);
+            this.$router.push("fresh");
+        }
+    }
     
 
 }

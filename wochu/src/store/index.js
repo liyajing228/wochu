@@ -25,6 +25,10 @@ export default new Vuex.Store({
     mutations,
     modules:{  
         typeSearch,
+<<<<<<< HEAD
         goodsInfo
+=======
+        goodsInfo,
+>>>>>>> 2a1fd6c12b751de6db798ee1eb3c61a1d90cb2c7
      }
 })

@@ -2,9 +2,9 @@
     <div id="head">
       <div class="search-k">
         <img src="./img/search.png">
-        <div class="search-key">
+        <router-link tag="div" to="/typeSearch" class="search-key">
           <input type="text" placeholder="支持首字母搜索" class="input-key">
-        </div>
+        </router-link>
       </div>
       <div class="shadowWrap"></div>
     </div>

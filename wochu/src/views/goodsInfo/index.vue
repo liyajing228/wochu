@@ -1,7 +1,39 @@
 <template>
 <div class="title">
+
+
+  <div class="shodow" v-show="flag">
+    <div class="button">
+      <img src="https://wmall.wochu.cn/h5/mall/img/vueimg/close.png" alt="" @click="handleNo">
+      <div>
+          <img :src=this.infoList.picUrl alt="">
+          <div>
+            <p>商品售价</p>
+            <p>¥<span>{{this.infoList.price}}</span></p>
+            <div class="num">
+                <p>购买数量</p> 
+                <p>
+                    <span @click="handlerNum(1)">+</span>
+                    <input type="text" v-model="num">
+                    <span @click="handlerNum(0)">-</span>
+                </p>
+            </div>
+          </div>
+
+      </div>
+
+      <p>加入购物车</p>
+    </div>
+  </div>
+
+
+
     <div id="carouse">
-    <img src="https://wmall.wochu.cn/h5/mall/img/vueimg/refer.png" alt="">
+    <router-link 
+    src="https://wmall.wochu.cn/h5/mall/img/vueimg/refer.png" 
+    tag="img"
+    to="/fresh"
+    alt=""></router-link>
     <div class="swiper-container" ref="swiperContainer">
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(item,index) in banner" :key="index">
@@ -37,24 +69,17 @@
 
     <div class="like"><span></span><span>猜你喜欢</span> <span></span></div>
 
+    <Like></Like>
+
     <div ref="decoration" class="introduce"></div>
 
-    <div>
-        <p>价格说明</p>
-        <ul>
-            <li>划线价格</li>
-            <li>未划线价格</li>
-            <li>商品详情页</li>
-            <li>此说明</li>
-        </ul>
-    </div>
 
     <div class="buyBus">
-        <p>
+        <router-link tag="p" to="/shopping">
             <img src="https://wmall.wochu.cn/h5/mall/img/vueimg/catr.png" alt="">
             <span>{{count}}</span>
-        </p>
-        <p>加入购物车</p>
+        </router-link>
+        <p @click="handleShow">加入购物车</p>
     </div>
 
   </div>
@@ -64,21 +89,25 @@
 <script> 
 import { mapActions, mapState,mapMutations} from "vuex";
 import Swiper from "swiper";
+import Like from './like';
 import "swiper/dist/css/swiper.css";
 export default {
   name: "carouse",
+  props:["id","str"],
   data() {
     return {
-      msg: "1910",
+      num:1,
+      flag:false,
     };
   },
+  beforeCreate(){
+    this.$store.dispatch("handleActionModify",this.id);
+  },
   created() {
-     this.handleGoodsInfo();
-     
+     this.handleGoodsInfo();     
    },
    mounted(){
     this.$refs.decoration.innerHTML=this.infoList.descriptionDetail;
-    console.log(this.infoList.descriptionDetail);
    },
   watch: {
     banner() {
@@ -96,18 +125,41 @@ export default {
       });
     }
   },
+  components:{
+    Like,
+  },
   computed:{
     ...mapState({
       banner:state=>state.goodsInfo.carouse,
       infoList:state=>state.goodsInfo.goodsInfo,
-      count:state=>state.goodsInfo.count
+      count:state=>state.goodsInfo.count,
     })
   },
   methods: {
+
     ...mapActions({
         handleGoodsInfo:"goodsInfo/handleGoodsInfo",
-    })
-  }
+    }),
+    handlerNum(val){
+        if(val){
+          
+            this.num++;
+        }else{
+          if(this.num>1){
+            this.num--;
+          }
+        }
+    },
+    handleShow(){
+      this.flag=true;
+    },
+    handleNo(){
+      this.flag=false;
+    }
+
+
+
+  },
 };
 </script>
 <style scoped>
@@ -150,17 +202,36 @@ p{margin: 0}
 
 .like span:nth-of-type(3){display: inline-block; height:.025rem;margin-top: .2rem; background: black; width: 1.8rem;margin-left: .2rem}
 
-.introduce{background: #f4f4f4;}
+.introduce{background:rgb(241, 239, 239)}
 
 .buyBus{height: 1rem;width:100%;display: flex;}
 .buyBus img{margin-top: .2rem;margin-left: .4rem;height: .42rem;width:.42rem;}
 .buyBus>p:nth-of-type(1){width: 20%;background:#eb481c; position: relative;}
 .buyBus>p:nth-of-type(1) span{position: absolute;width: .35rem;height: .35rem;background: #fff;color: coral; font-size: .24rem;line-height: .35rem;border-radius: 50%;text-align: center;top: .1rem;right: .45rem;}
 .buyBus>p:nth-of-type(2){width: 80%;background:#ff5918;color:#fff;line-height: 1rem;font-size: .45rem;text-align: center}
+
+
+
+.shodow{width:7.5rem;height:13.34rem;background: rgb(0, 0, 0,.2);position: fixed; z-index: 100;}
+.shodow .button{position: absolute;bottom: 0;background: white;width:7.5rem;padding-top: .5rem;}
+.button>p{height: 1rem;width:100%;line-height: 1rem;text-align: center;background: #ff5918;font-size: .4rem;color: white;}
+.button>img:nth-of-type(1){height: .36rem;width:.36rem;position: absolute;right: .2rem;top:.3rem;}
+.button>div>img{border:.02rem solid #ccc;border-radius: .2rem; margin-top: .4rem;margin-left: .4rem;}
+.button>div:nth-of-type(1){display: flex;}
+.button>div>div{margin-left: .5rem;}
+.button>div>div>p:nth-of-type(1){margin-top: .4rem;font-size: .3rem;color: rgb(202, 193, 193);margin-bottom: .1rem;}
+.button>div>div>p:nth-of-type(2){margin-bottom: .2rem;font-size: .4rem;color: #ff5918;}
+.button>div>div>p:nth-of-type(3){font-size: .3rem;font-weight: 500;}
+.button>p{margin-top: .5rem;}
+p>span{margin-left:.2rem; }
+p>input{width:1.14rme;}
+.num{display: flex;}
+.num>p{font-size: .3rem;}
+.num input{width:1rem;border: .02rem solid #ccc;text-align: center;}
+.num span{font-size: .6rem;margin: 0 .3rem;}
+.num span:nth-of-type(1){font-size: .6rem;margin-left: .4rem;}
+.num p:nth-of-type(2){margin-left: .2rem;}
 </style>
 
 
 
-//端口取出来的是数据与显示的数据不tong
-
-//取出来是标签的字符串，结果放不进去。

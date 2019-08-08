@@ -16,13 +16,13 @@
         <li>
           <label for>
             <span>收货人：</span>
-            <input type="text" placeholder="输入收货人的姓名" :value="nameVal" @input="handleName($event)"/>
+            <input type="text" placeholder="输入收货人的姓名" :value="nameVal" @blur="handleName($event)"/>
           </label>
         </li>
         <li>
           <label for>
             <span>联系电话：</span>
-            <input type="text" placeholder="手机号码" :value="telVal" @input="handleTel($event)"/>
+            <input type="text" placeholder="手机号码" :value="telVal" @blur="handleTel($event)"/>
           </label>
         </li>
         <li class="tag">
@@ -31,14 +31,14 @@
         <li @click="showaddress">
           <label for>
             <span>收货省市：</span>
-            <input type="text" placeholder="选择您所在的城市" :value="curVal" @input="handleCur($event)"/>
+            <input type="text" placeholder="选择您所在的城市" :value="curVal" @blur="handleCur($event)"/>
             <img src="http://wmall.wochu.cn/h5/address/img/nextstep@3x.png" alt class="img-right" />
           </label>
         </li>
         <li>
           <label for>
             <span>收货地址：</span>
-            <input type="text" placeholder="校区/写字楼/公寓" :value="profileVal" @input="handleProfile($event)"/>
+            <input type="text" placeholder="校区/写字楼/公寓" :value="profileVal" @blur="handleProfile($event)"/>
             <img
               src="http://wmall.wochu.cn/h5/address/css/images/dingwei@3x.png"
               alt
@@ -49,7 +49,7 @@
         <li>
           <label for>
             <span>详细地址：</span>
-            <input type="text" placeholder="楼号/楼层/房号/门牌号" :value="detialVal" @input="handleDetial($event)"/>
+            <input type="text" placeholder="楼号/楼层/房号/门牌号" :value="detialVal" @blur="handleDetial($event)"/>
           </label>
         </li>
         <li class="last">
@@ -75,6 +75,11 @@
         </li>
       </ul>
     </div>
+
+      <div class="alert" v-show="alertFlag">
+          {{alertVal}}
+      </div>
+
 
     <div class="addressComfirm">
       <div class="xian"></div>
@@ -103,7 +108,7 @@
 <script>
 import axios from "axios"
 import http from "../../utils/http.js"
-import { async } from 'q';
+import { async, all } from 'q';
 import {mapState, mapMutations} from "vuex"
 import { truncate } from 'fs';
 import { setInterval, clearInterval } from 'timers';
@@ -116,6 +121,8 @@ export default {
       conf:false,
       activeIndex:1,
       DotIndex:true,
+      alertFlag:false,
+      alertVal:"",
       ids:"",
      nameVal:"",
     telval:"",
@@ -151,7 +158,11 @@ export default {
   },
 
   created(){
-   
+   setInterval(()=>{
+     if(this.alertFlag){
+       this.alertFlag=false;
+     }
+   },3000)
   },
   methods: {
     back() {
@@ -175,12 +186,21 @@ export default {
       var reg= /^[\u4E00-\u9FA5A-Za-z]+$/;
         if(reg.test(e.target.value)){
             this.nameVal=e.target.value;
-        } 
+        }else{
+          this.alertFlag=true;
+          this.alertVal="用户名不正确"
+        }
         //  console.log(this.nameVal);
     },
     handleTel(e){
-      
-      this.telVal=e.target.value;
+      var reg=/^1([38]\d|5[0-35-9]|7[3678])\d{8}$/;
+      if(reg.test(e.target.value)){
+         this.telVal=e.target.value;
+      }else{
+        this.alertFlag=true;
+        this.alertVal="手机号不正确"
+      }
+     
       // console.log(this.telVal);
     },
     handleCur(e){
@@ -404,4 +424,6 @@ input {
   margin-bottom: 0;
   background: green !important;
 }
+
+.alert{width: 3rem;height: 1rem;padding: 0.2rem;background: rgba(0,0,0,0.3);position: absolute;top:3rem;left: 2.5rem;text-align: center;font-size: 0.3rem;}
 </style>
