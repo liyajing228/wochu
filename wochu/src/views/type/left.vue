@@ -32,11 +32,6 @@ export default {
   },
   created() {
     this.getRightTopData();
-    // http("GET","http://api9.wochu.cn/client/v1/goods/GetCategoryListByMenuId?parameters=%7B%22menu%22%3A0%7D").then((data)=>{
-    //   this.listl=data.data.data;
-    //   console.log(this.listl)
-    // })
-     
   },
   methods: {
 
@@ -90,7 +85,7 @@ export default {
     .active{border-left: .06rem solid #6eb042;font-size: 0.3rem;color:#6FB042;}
     .left li{
         width: 1.8rem;
-        height: 0.48rem;
+        height: 0.8rem;
         padding: 0.26rem 0;
         text-align:center;
     }

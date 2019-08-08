@@ -67,7 +67,6 @@ export default {
                     }
                 }
             };
-                    console.log(this.arr);
             [{img:["","",""],list:list},{img:[""],list:list},{img:["",""],list:list},{img:[""],list:list},{img:[""],list:null}]
         })
         }

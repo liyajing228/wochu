@@ -3,7 +3,7 @@
         <router-view>
             
         </router-view>
-        <div class="address-top">
+        <div class="address-top" >
         <div>
             <v-touch @tap="backType">
                 <img src="./img/left.png" alt="">
@@ -33,11 +33,12 @@
 </template>
 
 <script>
+
 export default {
     name:"adress",
     methods:{
         handleAdd(){
-            this.$router.push("/address/addressAdd")
+            this.$router.push("/addressAdd")
         },
         backType(){
             this.$router.push("/home")
@@ -54,14 +55,14 @@ html{background: #f0f0f0;}
     width: 0.7rem;height: 1.4rem;padding:0 0 0 0.24rem;
 }
 .address-top div:nth-of-type(1) img{
-    width: 0.216rem;height: 0.36rem;
+    width: 0.216rem;height: 0.36rem;display: inline-block;
 }
 .address-top div:nth-of-type(2){
     width: 4rem;height: 1rem;
     font-size: 0.36rem;text-align: center;margin:0 auto;
 }
 .address-top div:nth-of-type(3){
-    font-size: 0.3rem;width: 1.2rem;height: 1rem;padding:0 0.24rem 0 0;
+    font-size: 0.3rem;height: 1rem;padding:0 0.24rem 0 0;
 }
 
 

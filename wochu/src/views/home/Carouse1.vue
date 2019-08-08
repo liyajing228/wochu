@@ -23,15 +23,6 @@ export default{
         });
         // this.yb();
     },
-/*     methods:{
-      yb(){
-        console.log(this.data,"2");
-        this.data.forEach(element => {
-            this.data_t.push(element.imgUrl);
-        });
-      }
-    }
- */  
 }
 </script>
 

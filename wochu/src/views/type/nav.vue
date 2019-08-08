@@ -35,7 +35,7 @@ export default {
     overflow: hidden;
 }
 .search-k{
-  width: 6.5rem;
+  width: 7.02rem;
   height: 0.68rem;
   line-height: 0.68rem;
   padding: 0 0.24rem;
