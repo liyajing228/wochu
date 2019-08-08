@@ -10,11 +10,7 @@ module.exports = {
                 target:"http://api9.wochu.cn",
                 changeOrigin:true
             },
-            // "/client":{
-            //     target:"http://wmall.wochu.cn",
-            //     changeOrigin:true
-            // }
-                    }
+        }
     },
     
     

@@ -11,7 +11,7 @@
           <li
             v-for="(item1,index1) in item.children"
             :key="index1"
-            @click="handleRightList({aTId:item1.aTId,index:index})"
+            @click="handleRightList({aTId:item1.aTId,index:index1})"
           >
             <a :ref="item.url">
               <img :src="item1.imgUrl" />
@@ -54,17 +54,14 @@ export default {
     };
   },
   created() {
-    // this.getData();
+    this.getRightData();
     http("get","http://api9.wochu.cn/client/v1/goods/GetCategoryRecommendList").then((data)=>{
-        //  console.log(data)
         this.list=(data.data)
-        // console.log(this.list)
     })
     this.getDetialData();
     this.$observer.$on("handle", val => {
       if(!val){
         this.flag=true;
-       
       }else{
       this.flag = false;
       this.detialIndex=val;
@@ -74,16 +71,15 @@ export default {
   },
   methods: {
     handleRightList(data) {
-      console.log(data);
-
-      // if(index==0){
-      //   this.$router.push("/fullGoods")
-      // }
+      if(data.index==0){
+        this.$router.push("/fullGoods")
+      }
+      console.log(data.aTId);
     },
-    getData() {
+    getRightData() {
       axios.get("http://api9.wochu.cn/client/v1/goods/GetCategoryRecommendList").then(data => {
         this.list = data.data.data;
-        // console.log(this.list);
+       
       });
     },
     getDetialData(){
@@ -97,7 +93,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .list {
   width: 5.7rem;
   height: 11.18rem;
@@ -129,7 +125,7 @@ export default {
   height: 2.18rem;
 }
 .list li {
-  width: 1.58rem;
+  /* width: 1.58rem; */
   margin-right: 0.22rem;
   height: 2.2rem;
   text-align: center;
@@ -149,6 +145,7 @@ export default {
   width: 1rem;
   border-radius: 50%;
   height: 1rem;
+  display: inline-block;
 }
 .list span {
   display: block;

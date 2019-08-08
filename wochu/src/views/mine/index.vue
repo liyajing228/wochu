@@ -112,7 +112,7 @@ import m from "../../../public/img/18.png"
 
 }
 </script>
-<style scope>
+<style scoped>
  * {
             margin: 0;
             padding: 0

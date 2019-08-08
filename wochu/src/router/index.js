@@ -9,6 +9,8 @@ import shopping from "./shopping"
 import type from "./type"
 import fullGoods from "./fullGoods"
 import address from "./address"
+import typeSearch from "./typeSearch"
+import addressAdd from "./addressAdd"
 Vue.use(VueRouter)
 
 
@@ -22,6 +24,8 @@ export default new VueRouter({
         group,
         type,
         fullGoods,
-        address
+        address,
+        typeSearch,
+        addressAdd,
     ]
 })
