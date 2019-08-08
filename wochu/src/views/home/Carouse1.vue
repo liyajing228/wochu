@@ -28,12 +28,12 @@ export default{
 
 <style scoped>
     /* For demo */
-.ant-carousel{margin-top:.9rem;  height: 3.3rem;width: 7.5rem;background: red}
+.ant-carousel{margin-top:.9rem;height: 3.3rem;width: 7.5rem;background: red}
 h3{height: 3.3rem;width: 7.5rem;} 
 h3>img{height: 3.3rem;width: 7.5rem;} 
 .ant-carousel >>> .slick-slide {
   text-align: center;
-  height: 160px;
+  height: 3.3rem;
   line-height: 160px;
   background: #364d79;
   overflow: hidden;
@@ -42,4 +42,19 @@ h3>img{height: 3.3rem;width: 7.5rem;}
 .ant-carousel >>> .slick-slide h3 {
   color: #fff;
 }
-</style>
+ </style>
+
+
+/*         this.chatTimer=setInterval(() => {
+            this.$refs.ul.top=this.$refs.ul.offsetHeight-220?"this.$refs.ul.offsetHeight":"this.$refs.ul.offsetHeight-220";
+        }, 2000);
+*/
+
+
+
+
+/*     beforeDestroy () {
+        clearInterval(this.chatTimer);
+    this.chatTimer = null;
+    }
+ */
