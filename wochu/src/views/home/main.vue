@@ -4,7 +4,9 @@
             <div><img src="https://wochu.oss-cn-hangzhou.aliyuncs.com/upload/f58332d2-ad98-4d10-aa96-28d1b8090d37.jpg" alt=""></div>
             <ul :class="flag?'flex':''">
                 <li v-for="(item,index) in arr_li" :key="index">{{item.title}}</li>
-                <img src="../../img/down@3x.png" @click="flexable">
+                <v-touch v-if="flag" src="http://wmall.wochu.cn/h5/home/vueimg/down@3x.png" @tap="flexable" tag="img"></v-touch>
+
+                <v-touch v-if="!flag" src="http://wmall.wochu.cn/h5/home/vueimg/up@3x.png" @tap="flexable" tag="img"></v-touch>
             </ul>
         </div>
         <div class="Go">
@@ -25,7 +27,8 @@
             </div>
     </div>
     <!-- 猪脚的下面 -->
-    <div class="count"> 
+    <div class="zhujiao">
+            <div class="count"> 
             <div v-for="(item,index) in arr_time" :key='index'>
                     <img class="title" :src="item.labels.length?item.labels[0].labelUrl:''" alt="">
                     <img :src="item.imgUrl" alt="">
@@ -39,6 +42,8 @@
                     </div>
                 </div>
             </div>
+
+    </div>
             <!--大图片 -->
             <div class="BigShow">
                  <img src="https://img.wochu.cn/upload/8e8dd1d4-3cba-4306-b036-16151b2c87e2.jpg" alt="">
@@ -327,6 +332,8 @@ export default {
     },
     methods:{
         flexable(){
+            console.log(111);
+            
             this.flag=!this.flag;
         }
     }
@@ -335,12 +342,12 @@ export default {
 </script>
 
 <style scoped>
-.KuaiBao{display: flex;width: 100%;}
-.KuaiBao>div{width:17%;background: yellow; height: 1.1rem;}
+.KuaiBao{display: flex;width: 100%;position:relative;}
+.KuaiBao>div{width:17%; height: 1.1rem;}
 .KuaiBao>div>img{margin-top: .2rem;margin-left: .2rem;}
-.KuaiBao>ul{width: 83%;background: red;position: relative;}
-.KuaiBao>.flex{width: 83%;background: red;height: 1.2rem; position: relative;overflow: hidden;}
-.KuaiBao>ul>li{width: 80%;height: 1.1rem;line-height: 1.1rem; margin: .2rem;background: royalblue;font-size: .3rem;color: #ccc;}
+.KuaiBao>ul{width: 83%;position: relative;}
+.KuaiBao>.flex{width: 83%;height: 1.2rem; position: relative;overflow: auto;}
+.KuaiBao>ul>li{width: 80%;height: 1.1rem;line-height: 1.1rem; margin: .2rem;font-size: .3rem;color: #ccc;border-bottom:.02rem solid #ccc;}
 .KuaiBao>ul>img{position: absolute;right:.3rem;top: 0.4rem;height: .16rem;width: .3rem}
 
 
@@ -362,7 +369,7 @@ export default {
 .special>div>p:nth-of-type(3)>img{margin-left: 2.3rem}
 .special>.title{width: .66rem;height: .66rem;position: absolute;}
 /* 首页 打折 */
-.count{width: 7.5rem;display: flex;position: relative;overflow: hidden;font-size: .2rem}
+.count{position: relative;overflow: auto;font-size: .2rem;display:flex;width:18rem;}
 .count>div,.count_moban>div{width: 1.9rem;height:3.52rem;margin-left: .4rem;margin-bottom: .4rem; position: relative; }
 .count>div>img,.count_moban>div>img{height: 1.9rem;width: 1.9rem;}
 .count>div .title,.count_moban>div .title{position: absolute;width: .6rem;height: .6rem}
@@ -373,7 +380,7 @@ export default {
 .count_moban .finish{line-height:1.56rem ; height: 1.56rem;left: .2rem;top:.15rem;color: #fff; position: absolute; width: 1.56rem;padding-left:.25rem;border-radius: 50%; background:rgba(0,0,0, 0.3);font-size: .35rem}
 .count_moban .gray{color: #ccc}
 .count_moban{font-size: .27rem}
-.count_moban .decoration{white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+.count_moban .decoration{white-space: nowrap;text-overflow: ellipsis;overflow: auto;}
 .count_moban{width: 7.5rem;display: flex;position: relative;flex-wrap: wrap}
 /*  两张大图片 */
 .BigShow>img{width:7.5rem;height:3.04rem }
@@ -386,4 +393,7 @@ export default {
 
 .imgCon{height: 3rem;}
 .imgCon>img{height: 3rem;}
+
+
+.zhujiao{overflow-x:auto;width:auto;}
 </style>

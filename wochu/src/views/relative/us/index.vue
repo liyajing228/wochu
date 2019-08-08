@@ -11,9 +11,12 @@
 <script>
 export default {
 
+
+
 }
 </script>
 
 <style scoped>
+div img{width:7.5rem}
 
 </style>
