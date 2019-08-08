@@ -23,19 +23,10 @@ export default{
         });
         // this.yb();
     },
-/*     methods:{
-      yb(){
-        console.log(this.data,"2");
-        this.data.forEach(element => {
-            this.data_t.push(element.imgUrl);
-        });
-      }
-    }
- */  
 }
 </script>
 
-<style>
+<style scoped>
     /* For demo */
 .ant-carousel{margin-top:.9rem;  height: 3.3rem;width: 7.5rem;background: red}
 h3{height: 3.3rem;width: 7.5rem;} 

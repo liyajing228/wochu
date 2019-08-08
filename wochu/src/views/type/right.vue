@@ -97,7 +97,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .list {
   width: 5.7rem;
   height: 11.18rem;

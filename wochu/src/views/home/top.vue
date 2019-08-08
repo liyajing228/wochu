@@ -16,7 +16,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .top{display: flex; background:white;width: 7.5rem;height:.9rem;overflow: hidden;padding: 0 .24rem;  position: fixed;top:0;z-index: 2 }
 .top img:nth-of-type(1){margin-top: .24rem; width: .88rem;margin-bottom:.24rem;margin-right: .8rem}
 .top>div{width: 3.5rem;height: .9rem;margin-right: 1.6rem;display: flex}

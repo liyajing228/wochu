@@ -22,7 +22,7 @@ export default {
  
 </script>
 
-<style>
+<style scoped>
 #head{
     height: 1.1rem;
     position: fixed;

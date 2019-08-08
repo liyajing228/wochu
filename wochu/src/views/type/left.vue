@@ -63,7 +63,7 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
     .left{
         float: left;
         width: 1.72rem;
