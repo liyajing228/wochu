@@ -33,7 +33,7 @@ export default {
 ;
 </script>
 
-<style>
+<style scoped>
  .banner img:nth-of-type(1){width: 7.5rem;height: 10.6rem;}
  .banner img:nth-of-type(2){width: 7.5rem;height: 9.12rem;}
 </style>

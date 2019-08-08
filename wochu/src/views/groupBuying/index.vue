@@ -99,7 +99,7 @@ Http("get","http://tg.wochu.cn/client/v1/groupBuy/HotSaleList?parameters=%7B%22p
   },
 };
 </script>
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;

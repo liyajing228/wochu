@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     .total{display: flex;flex-wrap: wrap;width: 7.5rem;justify-content: space-around}
     .total>div>img{height: 1.7rem;width: 1.7rem;margin-bottom: .3rem;}
 
