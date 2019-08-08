@@ -1,5 +1,6 @@
 <template>
     <div class="shopping-data">
+        <alley-BScroll>
            <div class="data-none">
        <div class="data-none-img">
            <img src="http://wmall.wochu.cn/h5/mall/css/images/ic_no_goods.png">
@@ -10,7 +11,7 @@
         <div class="data-none-tip">
             <h2>可以看看哪些想买的</h2>
         </div>
-        <router-link to="/home" class="data-none-btn">随便逛逛</router-link>
+        <router-link to="/home" class="data-none-btn" tag="div">随便逛逛</router-link>
         </div> 
     
         <div class="recommend-list">
@@ -35,8 +36,9 @@
             </div> 
         </div>
         <div class="load-more">没有更多了~</div>
+          </alley-BScroll>
     </div>
-
+  
 </template>
 <script>
 export default {
@@ -58,7 +60,11 @@ export default {
     },
    created(){
        document.title = this.$route.meta.title
-        }
+        },
+         mounted(){
+        console.log(this.$refs.bigCon);
+        new BScroll(this.$refs.bigCon);
+    }
 
 }
 </script>
@@ -67,6 +73,7 @@ export default {
     margin:0;
     padding:0;
 }
+ .B_con{height: 12.34rem;overflow: auto;margin-bottom: 1rem}
 .shopping-data{
     background:#F4F4F4;
 
@@ -121,7 +128,7 @@ export default {
     text-decoration:none;
     padding:0.3rem;
     margin-left:2.7rem;
-
+    border:0.02rem solid #F47D30;
 }
 
 .recommend-list{

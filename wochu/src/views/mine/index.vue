@@ -30,7 +30,9 @@
                    
                         <div class="mon-right">
                            
-                            <p>马上充值</P>
+                            <router-link
+                            tag="p"
+                            to="/recharge">马上充值</router-link>
                              <img src="../../../public/img/4.png" class="right">
                         </div>
                      </div>
@@ -93,12 +95,12 @@ import m from "../../../public/img/18.png"
                   ],
                   list1:[
                        {src:f,word:"我的团购" ,href:"/groupBuying"},
-                        {src:g,word:"收货地址",href:"/groupBuying"},
+                        {src:g,word:"收货地址",href:"/addressAdd"},
                         {src:h,word:"我的收藏",href:"/groupBuying"},
                         {src:i,word:"关于我厨",href:"/groupBuying"}
                   ],
                   list2:[
-                       {src:j,word:"我的团购",href:"/groupBuying"},
+                       {src:j,word:"帮助中心",href:"/groupBuying"},
                         {src:k,word:"意见反馈",href:"/feedback"},
                         {src:l,word:"设置中心",href:"/groupBuying"},
                         {src:m,word:"客服电话",href:"/groupBuying"}
